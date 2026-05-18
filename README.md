@@ -5,6 +5,7 @@
 ### Native Python HTTP client with browser-shaped TLS and HTTP/2 transport profiles
 
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+[![PyPI](https://img.shields.io/pypi/v/re-quest.svg)](https://pypi.org/project/re-quest/)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Transport](https://img.shields.io/badge/transport-native%20TLS%20%2F%20HTTP2-purple)
 ![Status](https://img.shields.io/badge/status-experimental-orange)
@@ -43,7 +44,7 @@ It keeps the high-level API familiar while exposing browser-shaped transport pro
 ## Installation
 
 ```bash
-python3 -m pip install .
+python3 -m pip install re-quest
 ```
 
 Runtime dependencies:
