@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "re-quest"
+version = "0.4.1"
+description = "Native Python request client with browser-shaped TLS and HTTP/2 transport profiles"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = ["cryptography>=42", "hpack>=4", "Brotli>=1", "zstandard>=0.23"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "build>=1"]
+
+[project.urls]
+Homepage = "https://github.com/RoastHax/re-quest"
+Repository = "https://github.com/RoastHax/re-quest"
+
+[project.scripts]
+re-quest = "re_quest.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["re_quest*"]
