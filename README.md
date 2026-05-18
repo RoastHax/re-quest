@@ -166,62 +166,6 @@ re-quest report artifacts/fingerprints/*.json
 
 ---
 
-## Transport Model
-
-```text
-Application API
-     │
-     ▼
-Session / Request Builder
-     │
-     ▼
-Profile Selection
-     │
-     ├── Headers
-     ├── TLS extension order
-     ├── ALPN
-     ├── HTTP/2 settings
-     └── Fetch metadata
-     │
-     ▼
-Native Transport
-     │
-     ├── TLS 1.3
-     ├── TLS 1.2 fallback
-     ├── HTTP/2
-     └── HTTP/1.1 fallback
-```
-
----
-
-## Project Layout
-
-```text
-re_quest/
-  client.py              Session and request API
-  cookies.py             Cookie storage
-  headers.py             Ordered browser-style headers
-  profiles.py            Browser profile registry
-  redirect.py            Redirect policy
-
-  native/
-    core.py              Native transport orchestration
-    tls13.py             TLS 1.3 implementation
-    tls12.py             TLS 1.2 fallback
-    h2.py                HTTP/2 framing
-    h1.py                HTTP/1.1 fallback
-
-  transports/
-    native.py            Native transport adapter
-
-  fingerprint/
-    collect.py           Observation collection
-    compare.py           Observation summarization
-    report.py            Report generation
-```
-
----
-
 ## Built-in Profiles
 
 ```python
@@ -243,18 +187,6 @@ Common aliases:
 | `edge` | Edge-style header profile |
 
 Some profiles include native Chromium-shaped transport settings. Other profiles currently provide coherent headers while sharing the default native transport shape.
-
----
-
-## Design Goals
-
-`re-quest` is built around a few principles:
-
-1. Keep the API familiar.
-2. Make transport behavior explicit.
-3. Keep profiles coherent across headers, TLS, and HTTP/2.
-4. Avoid hidden browser automation.
-5. Keep the native transport inspectable from Python source.
 
 ---
 
